@@ -91,6 +91,10 @@ export default function Landing() {
                   <div className="overflow-hidden">
                     <div className="space-y-3 border-t border-line px-4 pb-4 pt-3 text-[13px] leading-relaxed text-slate">
                       <p>
+                        In order to access listings already in ATIS, you&rsquo;ll
+                        need to request an invitation.
+                      </p>
+                      <p>
                         Ask the organization&rsquo;s admin to add you as a team
                         member by accessing &ldquo;My Account &gt; Organization
                         Details &gt; Manage Team Members&rdquo;. Once added,

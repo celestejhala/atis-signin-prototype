@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Logo from '../components/Logo.jsx'
 import Button from '../components/Button.jsx'
-import Modal from '../components/Modal.jsx'
 import SupportFooter from '../components/SupportFooter.jsx'
 import photoBike from '../assets/img/photo-bike.jpg'
 import photoClimbing from '../assets/img/photo-climbing.jpg'
@@ -10,7 +9,6 @@ import photoClimbing from '../assets/img/photo-climbing.jpg'
 export default function Landing() {
   const navigate = useNavigate()
   const [orgOpen, setOrgOpen] = useState(false)
-  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-white">
@@ -78,20 +76,31 @@ export default function Landing() {
                   </svg>
                 </button>
                 {orgOpen && (
-                  <div className="border-t border-line px-4 pb-4 pt-3 text-[13px] leading-relaxed text-slate">
+                  <div className="space-y-3 border-t border-line px-4 pb-4 pt-3 text-[13px] leading-relaxed text-slate">
                     <p>
-                      If an organization is already listed in ATIS, you&rsquo;ll
-                      need to request an invitation in order to manage their
-                      listings.
+                      Ask the organization&rsquo;s admin to add you as a team
+                      member by accessing &ldquo;My Account &gt; Organization
+                      Details &gt; Manage Team Members&rdquo;. Once added,
+                      you&rsquo;ll receive an email to create a new account or
+                      join with an existing one.
                     </p>
-                    <button
-                      type="button"
-                      onClick={() => setModalOpen(true)}
-                      className="mt-3 inline-flex items-center gap-1 font-medium text-ink underline underline-offset-2 hover:no-underline"
-                    >
-                      Learn how to get access
-                      <span aria-hidden="true">→</span>
-                    </button>
+                    <p>
+                      Not sure who to contact? Get in touch with ATIS Support at{' '}
+                      <a
+                        href="mailto:atissupport@travelalberta.com?subject=ATIS Support Request"
+                        className="font-medium text-ink underline underline-offset-2"
+                      >
+                        atissupport@travelalberta.com
+                      </a>{' '}
+                      or{' '}
+                      <a
+                        href="tel:18332704232"
+                        className="font-medium text-ink underline underline-offset-2"
+                      >
+                        1-833-270-4232
+                      </a>
+                      .
+                    </p>
                   </div>
                 )}
               </div>
@@ -164,31 +173,6 @@ export default function Landing() {
           </div>
         </section>
       </div>
-
-      {/* ---------- Modal: join an existing organization ---------- */}
-      <Modal
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        title="Join an existing organization"
-        footer={<Button onClick={() => setModalOpen(false)}>OK</Button>}
-      >
-        <p>
-          Ask the organization&rsquo;s admin to add you as a team member by
-          accessing &ldquo;My Account &gt; Organization Details &gt; Manage Team
-          Members&rdquo;. Once added, you&rsquo;ll receive an email to create a
-          new account or join with an existing one.
-        </p>
-        <p>
-          Not sure who to contact? Get in touch with ATIS Support at{' '}
-          <a
-            href="mailto:atissupport@travelalberta.com?subject=ATIS Support Request"
-            className="font-medium text-ink underline underline-offset-2"
-          >
-            atissupport@travelalberta.com
-          </a>{' '}
-          or 1-833-270-4232.
-        </p>
-      </Modal>
     </div>
   )
 }

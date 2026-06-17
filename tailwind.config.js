@@ -20,6 +20,8 @@ export default {
           200: '#cfefec',
         },
         accent: '#e3790b',
+        // Travel Alberta primary (dark red) — interactive hover/active states
+        primary: { 400: '#9c0f00', 500: '#6d1012' },
         danger: { DEFAULT: '#da1e28', soft: '#fff2f3' },
         success: { DEFAULT: '#24a148', soft: '#f7fffa' },
       },

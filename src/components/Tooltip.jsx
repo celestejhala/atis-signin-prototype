@@ -27,7 +27,7 @@ export default function Tooltip({ label = 'More information', children }) {
         aria-label={label}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="grid h-4 w-4 place-items-center rounded-full text-muted transition hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
+        className="grid h-4 w-4 place-items-center rounded-full text-ink transition-colors hover:text-primary-400 active:text-primary-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/50"
       >
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.2" />

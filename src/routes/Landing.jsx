@@ -21,7 +21,7 @@ export default function Landing() {
           <div className="my-auto w-full max-w-md">
             <Logo className="lg:w-44" />
 
-            <h1 className="font-display mt-8 text-5xl text-ink sm:text-6xl lg:mt-12 lg:text-7xl">
+            <h1 className="font-display mt-8 text-4xl text-ink sm:text-5xl lg:mt-12">
               Meet the new
               <br />
               ATIS sign-in

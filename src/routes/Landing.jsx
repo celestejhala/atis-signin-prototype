@@ -15,8 +15,8 @@ export default function Landing() {
       {/* Live layout: fixed-width left column, flexible teal column, full height */}
       <div className="grid min-h-screen grid-cols-1 md:grid-cols-[26rem_1fr] lg:grid-cols-[36rem_1fr]">
         {/* ---------- Left: sign-in intro ---------- */}
-        <section className="flex flex-col px-6 py-8 sm:px-10 lg:px-14">
-          <div className="my-auto w-full max-w-md">
+        <section className="flex flex-col px-6 py-10 sm:px-10 lg:px-14 lg:py-16">
+          <div className="w-full max-w-md">
             <Logo className="lg:w-44" />
 
             <h1 className="font-display mt-8 text-4xl text-ink sm:text-5xl lg:mt-12">
@@ -48,6 +48,7 @@ export default function Landing() {
                 <button
                   type="button"
                   aria-expanded={orgOpen}
+                  aria-controls="org-panel"
                   onClick={() => setOrgOpen((v) => !v)}
                   className="flex w-full items-center gap-2 px-4 py-3 text-left text-[14px] font-medium text-ink"
                 >
@@ -75,46 +76,60 @@ export default function Landing() {
                     <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
-                {orgOpen && (
-                  <div className="space-y-3 border-t border-line px-4 pb-4 pt-3 text-[13px] leading-relaxed text-slate">
-                    <p>
-                      Ask the organization&rsquo;s admin to add you as a team
-                      member by accessing &ldquo;My Account &gt; Organization
-                      Details &gt; Manage Team Members&rdquo;. Once added,
-                      you&rsquo;ll receive an email to create a new account or
-                      join with an existing one.
-                    </p>
-                    <p>
-                      Not sure who to contact? Get in touch with ATIS Support at{' '}
-                      <a
-                        href="mailto:atissupport@travelalberta.com?subject=ATIS Support Request"
-                        className="font-medium text-ink underline underline-offset-2"
-                      >
-                        atissupport@travelalberta.com
-                      </a>{' '}
-                      or{' '}
-                      <a
-                        href="tel:18332704232"
-                        className="font-medium text-ink underline underline-offset-2"
-                      >
-                        1-833-270-4232
-                      </a>
-                      .
-                    </p>
+                {/* Animated disclosure: grid 0fr->1fr smoothly grows height
+                    downward without shifting content above the trigger.
+                    `inert` when collapsed keeps hidden links out of tab/AT. */}
+                <div
+                  id="org-panel"
+                  role="region"
+                  aria-label="Joining an existing org"
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
+                    orgOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                  }`}
+                  {...(orgOpen ? {} : { inert: '' })}
+                >
+                  <div className="overflow-hidden">
+                    <div className="space-y-3 border-t border-line px-4 pb-4 pt-3 text-[13px] leading-relaxed text-slate">
+                      <p>
+                        Ask the organization&rsquo;s admin to add you as a team
+                        member by accessing &ldquo;My Account &gt; Organization
+                        Details &gt; Manage Team Members&rdquo;. Once added,
+                        you&rsquo;ll receive an email to create a new account or
+                        join with an existing one.
+                      </p>
+                      <p>
+                        Not sure who to contact? Get in touch with ATIS Support
+                        at{' '}
+                        <a
+                          href="mailto:atissupport@travelalberta.com?subject=ATIS Support Request"
+                          className="font-medium text-ink underline underline-offset-2"
+                        >
+                          atissupport@travelalberta.com
+                        </a>{' '}
+                        or{' '}
+                        <a
+                          href="tel:18332704232"
+                          className="font-medium text-ink underline underline-offset-2"
+                        >
+                          1-833-270-4232
+                        </a>
+                        .
+                      </p>
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="pt-8">
+          <div className="mt-auto pt-10">
             <SupportFooter />
           </div>
         </section>
 
         {/* ---------- Right: marketing column ---------- */}
-        <section className="flex flex-col bg-teal-100 px-6 py-8 sm:px-10 lg:px-12">
-          <div className="my-auto w-full max-w-2xl">
+        <section className="flex flex-col bg-teal-100 px-6 py-10 sm:px-10 lg:px-12 lg:py-16">
+          <div className="w-full max-w-2xl">
             {/* Wide landscape photo + tall portrait photo, matching the live grid */}
             <div className="grid grid-cols-[1fr_33%] items-start gap-3">
               <img
@@ -163,7 +178,7 @@ export default function Landing() {
             </div>
           </div>
 
-          <div className="mt-10 flex gap-5 text-[12px] text-muted">
+          <div className="mt-auto flex gap-5 pt-10 text-[12px] text-muted">
             <a href="https://industry.travelalberta.com/resources/atis/atis-terms-service" className="hover:underline">
               Terms of Service
             </a>

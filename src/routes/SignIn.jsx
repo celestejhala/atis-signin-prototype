@@ -47,11 +47,11 @@ export default function SignIn() {
   const [showPw, setShowPw] = useState(false)
 
   return (
-    <div className="min-h-full bg-white">
-      <div className="mx-auto grid max-w-[1280px] grid-cols-1 lg:grid-cols-[1fr_minmax(360px,42%)]">
+    <div className="min-h-screen bg-white">
+      <div className="grid min-h-screen grid-cols-1 lg:grid-cols-[1fr_minmax(380px,40%)]">
         {/* ---------- Left: the form ---------- */}
-        <section className="flex flex-col justify-between px-6 py-10 sm:px-12 lg:py-14">
-          <div className="mx-auto w-full max-w-md">
+        <section className="flex flex-col px-6 py-8 sm:px-12">
+          <div className="mx-auto my-auto w-full max-w-md">
             <Logo />
             <h1 className="font-display mt-9 text-3xl text-ink sm:text-4xl">
               Sign in to ATIS
@@ -151,8 +151,8 @@ export default function SignIn() {
         </section>
 
         {/* ---------- Right: "what changed" guidance ---------- */}
-        <aside className="flex flex-col justify-between bg-teal-100 px-6 py-10 sm:px-10 lg:py-14">
-          <div className="max-w-sm">
+        <aside className="flex flex-col bg-teal-100 px-6 py-8 sm:px-10 lg:px-12">
+          <div className="my-auto max-w-md">
             <h2 className="font-display text-2xl leading-snug text-ink">
               As of November 5, 2025, sign-in has changed. Your old ATIS
               password no longer works.

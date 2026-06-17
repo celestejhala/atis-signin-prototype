@@ -13,20 +13,21 @@ export default function Landing() {
   const [modalOpen, setModalOpen] = useState(false)
 
   return (
-    <div className="min-h-full bg-white">
-      <div className="mx-auto grid max-w-[1280px] grid-cols-1 lg:grid-cols-2">
+    <div className="min-h-screen bg-white">
+      {/* Live layout: fixed-width left column, flexible teal column, full height */}
+      <div className="grid min-h-screen grid-cols-1 md:grid-cols-[26rem_1fr] lg:grid-cols-[36rem_1fr]">
         {/* ---------- Left: sign-in intro ---------- */}
-        <section className="flex flex-col justify-between px-6 py-10 sm:px-10 lg:py-14">
-          <div>
-            <Logo />
+        <section className="flex flex-col px-6 py-8 sm:px-10 lg:px-14">
+          <div className="my-auto w-full max-w-md">
+            <Logo className="lg:w-44" />
 
-            <h1 className="font-display mt-10 text-4xl text-ink sm:text-5xl">
+            <h1 className="font-display mt-8 text-5xl text-ink sm:text-6xl lg:mt-12 lg:text-7xl">
               Meet the new
               <br />
               ATIS sign-in
             </h1>
 
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-slate">
+            <p className="mt-5 text-[15px] leading-relaxed text-slate lg:text-base">
               ATIS (Alberta Tourism Information Service) is evolving as Travel
               Alberta introduces a new sign-in system (SSO). Use one account to
               access all our digital services; it&rsquo;s easier, safer, and
@@ -97,34 +98,35 @@ export default function Landing() {
             </div>
           </div>
 
-          <div className="mt-12">
+          <div className="pt-8">
             <SupportFooter />
           </div>
         </section>
 
         {/* ---------- Right: marketing column ---------- */}
-        <section className="flex flex-col justify-between bg-teal-100 px-6 py-10 sm:px-10 lg:py-14">
-          <div>
-            <div className="grid grid-cols-2 gap-3">
+        <section className="flex flex-col bg-teal-100 px-6 py-8 sm:px-10 lg:px-12">
+          <div className="my-auto w-full max-w-2xl">
+            {/* Wide landscape photo + tall portrait photo, matching the live grid */}
+            <div className="grid grid-cols-[1fr_33%] items-start gap-3">
               <img
                 src={photoBike}
                 alt="Cyclist preparing for a ride"
-                className="h-40 w-full rounded-lg object-cover sm:h-52"
+                className="aspect-[1.7] w-full rounded-lg object-cover"
                 loading="lazy"
               />
               <img
                 src={photoClimbing}
                 alt="Climber with rope"
-                className="h-40 w-full rounded-lg object-cover sm:h-52"
+                className="aspect-[0.85] w-full rounded-lg object-cover"
                 loading="lazy"
               />
             </div>
 
-            <h2 className="font-display mt-8 text-2xl text-ink">
+            <h2 className="font-display mt-8 text-3xl text-ink">
               Help travellers find you
             </h2>
 
-            <div className="mt-4 max-w-md space-y-4 text-[14px] leading-relaxed text-slate">
+            <div className="mt-4 max-w-md space-y-4 text-[15px] leading-relaxed text-slate">
               <p>
                 ATIS is a free service that drives traffic to your website or
                 social accounts and customers to your doorstep. Create your
